@@ -117,7 +117,15 @@ jobs:
           )"
  
             echo "Downloading $(basename "$output")..."
-            gdown "$file_id" -O "$output"
+            download_url="$url"
+            if [[ "$url" =~ ^[-A-Za-z0-9_]{20,}$ ]]; then
+              download_url="https://drive.google.com/uc?id=$file_id"
+            fi
+
+            if ! gdown --fuzzy "$download_url" -O "$output"; then
+              echo "::error::Google Drive download failed. Check link sharing and whether Google Drive has applied a download quota. The workflow does not bypass access controls or quotas."
+              exit 1
+            fi
  
             if [[ ! -s "$output" ]]; then
               echo "::error::Downloaded file is empty."
