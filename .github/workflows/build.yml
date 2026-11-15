@@ -439,6 +439,7 @@ jobs:
           set -euo pipefail
           WORK="$RUNNER_TEMP/nxnative"
           pip install lz4 "capstone>=5,<6" fonttools zbic backports.zstd
+          brew install glslang
           GAME_DIR="$RUNNER_TEMP/GameFiles"
           OUTPUT="$RUNNER_TEMP/NxNative.ipa"
  
