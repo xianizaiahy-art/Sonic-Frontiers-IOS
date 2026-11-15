@@ -32,7 +32,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: mianmuhammadse/nxnative
-          ref: d158df611bf2f3fa315c4f16585575cdfdb2a1d3
+          ref: main
  
       - name: Checkout standard nxnative version
         if: inputs.device == 'iPhone 15 Pro/Pro Max or newer (standard)'
