@@ -438,6 +438,7 @@ jobs:
         run: |
           set -euo pipefail
           WORK="$RUNNER_TEMP/nxnative"
+          pip install lz4 "capstone>=5,<6" fonttools zbic backports.zstd
           GAME_DIR="$RUNNER_TEMP/GameFiles"
           OUTPUT="$RUNNER_TEMP/NxNative.ipa"
  
